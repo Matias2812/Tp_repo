@@ -1,0 +1,30 @@
+{% extends  "padre_2.html" %}
+
+
+{% load static %}
+
+
+
+{% block contenido %}
+<h1> Alta de profesores</h1>
+    <form action="alta_profesores" method="POST">
+        {% csrf_token %}
+        <p>Nombre:</p>
+        <input type="text" name="nombre" required>
+        <p>legajo:</p>
+        <input type="number" name="legajo" required>
+        <p>Fecha de alta:</p>
+        <input type="date" name="fecha_alta" required>
+        <p>Dicta el curso de:</p>
+        <input type="text" name="dicta_materia" required>
+        <p>Email:</p>
+        <input type="text" name="email" required>
+
+
+        <input type="submit" value="Enviar">
+
+
+    </form>
+
+
+{% endblock %}

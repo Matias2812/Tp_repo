@@ -1,0 +1,26 @@
+{% extends "padre_3.html" %}
+
+{%  load static %}
+
+
+{% block contenido %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dar de alta</title>
+</head>
+<body>
+    <div class="navbar navbar-light bg-light static-top">
+        <a class="" href="{% url 'alta_alumnos' %}">Alta de alumnos</a>
+        <a class="" href="{% url 'alta_profesores' %}">Alta de profesores</a>
+        <a class="" href="{% url 'alta_curso' %}">Alta de cursos</a>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
