@@ -15,7 +15,7 @@ class Alumno_formulario(forms.Form):
 
 class Profesor_formulario(forms.Form):
     nombre = forms.CharField(max_length=40)
-    camada = forms.IntegerField()
+    legajo = forms.IntegerField()
     fecha_alta= forms.DateTimeField()
     dicta_materia= forms.CharField(max_length=20)
     email = forms.CharField(max_length=40)

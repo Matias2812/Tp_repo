@@ -11,8 +11,7 @@ from django.contrib.auth.decorators import login_required
 #VISTAS GENERALES
 
 def inicio(request):
-
-    return render( request , "plantillas.html" )
+    return render( request , "plantillas.html")
 
 def cursos(request):
     cursos = Curso.objects.all()
@@ -62,6 +61,9 @@ def alta_curso(request):
 
     return render( request, "formulario.html")
 
+
+
+
 @login_required
 def alta_profesores(request):
 
@@ -72,12 +74,16 @@ def alta_profesores(request):
         if mi_formulario.is_valid():
             datos = mi_formulario.cleaned_data          
             
-            profesor = Profesores( nombre=datos['nombre'] , legajo=datos['legajo'], fecha_alta= datos['fecha_alta'], dicta_materia=datos['dicta_materia'], email=datos['email'] )
+            profesor = Profesores(nombre = datos['nombre'], legajo = datos['legajo'], fecha_alta = datos['fecha_alta'], dicta_materia = datos['dicta_materia'], email = datos['email'] )
             profesor.save()
 
         return render(request, "plantillas.html")
     
     return render( request, "alta_profesores.html")
+
+
+
+
 
 @login_required
 def alta_alumnos(request):
@@ -109,7 +115,21 @@ def buscar_curso(request):
 
 
 
-def buscar(request):
+
+def buscar_alumnos(request):
+
+    return render( request , "buscar_alumnos.html")
+
+
+
+
+def buscar_profesores(request):
+
+    return render( request , "buscar_profesores.html")
+
+
+
+def resultado_curso(request):
 
     if request.GET['nombre']:
         nombre = request.GET['nombre']      
@@ -117,7 +137,37 @@ def buscar(request):
         return render( request , "resultado_busqueda.html" , {"cursos": cursos})
     else:
         return HttpResponse("Campo vacio")
-   
+
+
+
+
+
+def resultado_alumnos(request):
+
+    if request.GET['nombre']:
+        nombre = request.GET['nombre']      
+        alumnos = Alumno.objects.filter(nombre__icontains = nombre)
+        return render( request , "resultado_alumnos.html" , {"alumnos": alumnos})
+    else:
+        return HttpResponse("Campo vacio")
+
+
+
+
+def resultado_profesores(request):
+
+    if request.GET['nombre']:
+        nombre = request.GET['nombre']
+        profesores = Profesores.objects.filter(nombre__icontains=nombre)
+        return render(request, "resultado_profesores.html", {"profesores": profesores})
+    else:
+        return HttpResponse("Campo vacio")
+
+
+
+
+
+
 
 #ELIMINAR Y EDITAR
 @login_required
@@ -245,7 +295,7 @@ def login_request(request):
             if user is not None:
                 login(request,user)
                 avatares = Avatar.objects.filter(user=request.user.id)
-                return render( request , "inicio.html")
+                return render( request , "inicio.html", {'url': avatares[0].imagen.url})
                 
     
             else:

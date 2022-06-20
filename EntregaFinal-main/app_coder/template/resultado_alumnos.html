@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+{% load static %}
+
+
+{% block contenido %}
+
+
+
+{% if alumnos %}
+
+<ul>
+    {% for alumnos in alumnos %}
+    <li>Nombre: {{alumnos.nombre}}</li>
+    <li>Comision: {{alumnos.camada}}</li>
+    <li>Nacimiento: {{alumnos.nacimiento}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron alumnos</p>
+{% endif %}
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -18,7 +18,12 @@ urlpatterns = [
 
     #BUSCAR
     path("buscar_curso" , views.buscar_curso, name= "buscar_curso"),
-    path("buscar", views.buscar, name= "buscar"),
+    path("resultado_curso", views.resultado_curso, name= 'resultado1'),
+    path('buscar_alumnos', views.buscar_alumnos, name = 'buscar2'),
+    path('resultado_alumnos', views.resultado_alumnos, name='resultado2'),
+    path('buscar_profesores', views.buscar_profesores, name='buscar3'),
+    path('resultado_profesores', views.resultado_profesores, name = 'resultado3'),
+
 
     #EDITAR Y ELIMINAR
     path("elimina_curso/<int:id>" , views.elimina_curso , name="elimina_curso"),
