@@ -40,6 +40,9 @@
                 <a class="" href="{% url 'register' %}">Registrarse</a>
                 {% endif %}
                 {% if request.user.is_authenticated %}
+                <a class="" href="{% url 'Logout' %}">Logout</a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
                 <a class="" href="{% url 'alta' %}">Dar de alta</a>
                 {% endif %}
                 {% if request.user.is_authenticated %}

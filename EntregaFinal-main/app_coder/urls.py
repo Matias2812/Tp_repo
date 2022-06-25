@@ -9,7 +9,7 @@ urlpatterns = [
     path("cursos" , views.cursos , name="cursos"),
     path("alumnos" , views.alumnos , name="alumnos" ),
     path("directivos", views.directivos, name="directivos"),
-    #path("about", views.about, name= "about"),
+    
     #ALTAS
     path("alta_curso" , views.alta_curso, name="alta_curso"),
     path("alta_profesores", views.alta_profesores, name="alta_profesores"),

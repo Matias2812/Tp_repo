@@ -295,7 +295,7 @@ def login_request(request):
             if user is not None:
                 login(request,user)
                 avatares = Avatar.objects.filter(user=request.user.id)
-                return render( request , "inicio.html", {'url': avatares[0].imagen.url})
+                return render( request , "inicio.html")
                 
     
             else:
